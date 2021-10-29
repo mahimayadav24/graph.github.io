@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Hello, world!</title>
+    <style>
+        body {
+            margin: 50px 50px;
+        }
+
+        .apexcharts-menu-icon {
+            display: none !important;
+        }
+
+        #SvgjsSvg1001 {
+            background: rgba(39, 78, 201, 1) !important;
+            border-radius: 20px;
+            padding: 25px 30px 0px 30px;
+        }
+
+        #SvgjsText1005 {
+            display: none !important;
+        }
+
+        .apexcharts-legend-text {
+            color: white !important;
+            /* display: none; */
+            /* padding: 10px 30px; */
+        }
+
+        .apexcharts-legend-marker {
+            /* display: none !important; */
+        }
+
+        .apexcharts-legend-series {
+            padding: 0px 40px;
+        }
+
+        #SvgjsLine1060 {
+            /* display: none !important;
+            border: none !important; */
+        }
+
+        .apexcharts-legend {
+            position: initial !important;
+
+        }
+
+        .border-white {
+            position: absolute;
+            top: 68px;
+            z-index: 9999;
+            color: rgba(212, 225, 255, 1);
+            width: 50%;
+            border: 1px solid #ffff;
+            opacity: 1;
+            left: 45px;
+        }
+
+        #chart {
+            position: relative;
+
+        }
+
+        .new {
+            position: absolute;
+            top: 50px;
+            color: white;
+            z-index: 9;
+            left: 100px;
+        }
+
+        .new li {
+            display: inline-block;
+            padding: 0px 52px;
+
+        }
+
+        .progress {
+            background: rgba(255, 255, 255, 0.1);
+            justify-content: flex-start;
+            border-radius: 100px;
+            align-items: center;
+            position: relative;
+
+            display: flex;
+            height: 20px;
+            width: 100px;
+        }
+
+        .progress-value {
+            animation: load 3s normal forwards;
+            box-shadow: 0 10px 40px -10px #fff;
+            border-radius: 100px;
+            background: #fff;
+            height: 30px;
+            width: 0;
+        }
+
+        @keyframes load {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 68%;
+            }
+        }
+
+        .value2 {
+            background-color: rgba(255, 112, 112, 1);
+        }
+
+        .value3 {
+            background-color: rgba(254, 249, 140, 1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="chart">
+        <hr class="border-white">
+        <div class="new">
+            <ul>
+                <li>
+                    <div class="progress">
+                        <div class="progress-value"></div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="progress">
+                        <div class="progress-value value2"></div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="progress">
+                        <div class="progress-value value3"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script>
+
+        var options = {
+            series: [{
+                name: "Total Logos Rendered ",
+                data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32]
+            },
+            {
+                name: "Total Approved Logo",
+                data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15]
+            },
+            {
+                name: 'Total Approved Logo',
+                data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45]
+            }
+            ],
+            chart: {
+                height: 450,
+                width: 800,
+                type: 'line',
+                foreColor: '#fff',
+                zoom: {
+                    enabled: false
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            colors: ["#ECF9FF", "#FF7070", "#FEF98C"],
+            stroke: {
+                width: [3, 3, 3],
+                curve: 'straight',
+
+            },
+            title: {
+                text: 'Page Statistics',
+                align: 'left'
+
+            },
+            legend: {
+                tooltipHoverFormatter: function (val, opts) {
+                    return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
+
+                }
+            },
+            markers: {
+                size: 0,
+                hover: {
+                    sizeOffset: 6
+                }
+            },
+            xaxis: {
+                categories: ['01 Jan', '02 Jan', '03 Jan', '04 Jan', '05 Jan', '06 Jan', '07 Jan', '08 Jan', '09 Jan',
+                    '10 Jan', '11 Jan', '12 Jan'
+                ],
+            },
+            tooltip: {
+                y: [
+                    {
+                        title: {
+                            formatter: function (val) {
+                                return val + " (mins)"
+                            }
+                        }
+                    },
+                    {
+                        title: {
+                            formatter: function (val) {
+                                return val + " per session"
+                            }
+                        }
+                    },
+                    {
+                        title: {
+                            formatter: function (val) {
+                                return val;
+                            }
+                        }
+                    }
+                ]
+            },
+            grid: {
+                borderColor: '#f1f1f1',
+                strokeDashArray: 1,
+                padding: {
+                    bottom: 20,
+                    top: 100
+                }
+            }
+        };
+
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+
+    </script>
+</body>
+
+</html>
